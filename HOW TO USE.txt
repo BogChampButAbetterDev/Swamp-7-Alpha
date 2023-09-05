@@ -1,0 +1,132 @@
+Okey so using Swamp 7 is really simple. 
+Just add the textures you want to be your floor and ceiling textures in the textures folder and run the executable. 
+Then type 't' when it prompts you to type t or r. 
+Then give it the name of the texures WITHOUT a path or file extension. Here is an example
+
+Input name of FLOOR texture (NOT CEILING): floor_texture              <- notice how I don't provide a path or file extension
+
+thats because of this line of code: 
+self.floor_tex = pg.image.load(f'textures/{floor_text}.png').convert()
+
+if you look at f'textures/{floor_text}.png 
+you can see that Swamp 7 already expects your textures to be in the textures folder
+
+the same goes for when specifying your ceiling texture
+
+Now in terms of moving your ass
+W A S D to move <- look left -> look right E move up Q move down or it's the other way around I don't know
+
+and if you get this error: You must provide a floor and ceiling texture!
+
+scrol down
+ YOU
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ARE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ DUMBSHIT
