@@ -1,10 +1,10 @@
 import pygame as pg
-import numpy as np
 from settings import *
+import numpy as np
 from numba import njit, prange
 
 class Mode7:
-    def __init__(self, app, floor_text, ceil_text):
+    def __init__(self, app, floor_text, ceil_text, delta):
         self.app = app
         self.floor_tex = pg.image.load(f'textures/{floor_text}.png').convert()
         self.tex_size = self.floor_tex.get_size()
@@ -15,6 +15,8 @@ class Mode7:
         self.ceil_array = pg.surfarray.array3d(self.ceil_tex)
 
         self.screen_array = pg.surfarray.array3d(pg.Surface(RES))
+
+        self.delta = delta
 
         self.alt = 1.0
         self.angle = 0.0
@@ -88,8 +90,8 @@ class Mode7:
         sin_a = np.sin(self.angle)
         cos_a = np.cos(self.angle)
         dx, dy = 0, 0
-        speed_sin = SPEED * sin_a
-        speed_cos = SPEED * cos_a
+        speed_sin = SPEED * sin_a * self.delta
+        speed_cos = SPEED * cos_a * self.delta
 
         keys = pg.key.get_pressed()
         if keys[pg.K_w]:
@@ -107,13 +109,17 @@ class Mode7:
         self.pos[0] += dx
         self.pos[1] += dy
 
+        # Rotate the camera
+        rotation_speed = SPEED  # Adjust this value for your desired rotation speed
         if keys[pg.K_LEFT]:
-            self.angle -= SPEED
+            self.angle -= rotation_speed * self.delta
         if keys[pg.K_RIGHT]:
-            self.angle += SPEED
+            self.angle += rotation_speed * self.delta
 
+        # Adjust altitude
         if keys[pg.K_q]:
-            self.alt += SPEED
+            self.alt += SPEED * self.delta
         if keys[pg.K_e]:
-            self.alt -= SPEED
+            self.alt -= SPEED * self.delta
+
         self.alt = min(max(self.alt, 0.3), 4.0)

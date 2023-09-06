@@ -3,4 +3,5 @@ HALF_WIDTH, HALF_HEIGHT = WIDTH // 2, HEIGHT // 2
 FPS = 10000
 FOCAL_LENGTH = 250
 SCALE = 100
-SPEED = 0.01
+SPEED = 1
+NUM_THREADS = 2 # number of threads your cpu has
